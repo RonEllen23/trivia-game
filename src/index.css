@@ -1,0 +1,121 @@
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #000;
+  height: 100vh;
+  background-image: url(../src/Images/backgroundScreen.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.MuiBox-root.css-0 {
+height: unset !important;
+padding: 18px 50px 50px 50px;
+border-radius: 8px;
+background-color: #fff;
+}
+
+.title-name {
+  flex-direction: column;
+  display: flex;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+ 
+}
+
+.title-name h1 {
+  color: #fff;
+  font-family: cursive
+}
+
+.first-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.css-16m3jxf-MuiTypography-root {
+  margin-bottom: 0 !important;
+}
+
+.css-1uikmdy-MuiTypography-root {
+  margin-bottom: 0 !important;
+}
+
+.MuiContainer-root {
+  margin-left: unset;
+}
+
+.css-chopu4-MuiPaper-root-MuiCard-root {
+  border: unset !important;
+}
+
+.MuiTypography-root.MuiTypography-body1.css-1u5acqb-MuiTypography-root {
+  box-sizing: border-box;
+  padding: 50px;
+  border: 1px solid #000;
+background-color: #fff !important;
+}
+.MuiTypography-root.MuiTypography-h5.css-ag7rrr-MuiTypography-root{
+  text-align: left;
+  width: fit-content;
+  margin: auto;
+  width: 650px;   
+}
+
+.question-content {
+  font-size: 20px;
+  font-family: monospace;
+}
+.labelCategory{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.question-label{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.MuiGrid-root.MuiGrid-container.css-10mzr36-MuiGrid-root {
+  margin: auto;
+  margin-top: 20px;
+  max-width: 70%;
+}
+
+.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-6.css-1osj8n2-MuiGrid-root {
+  max-width: unset;
+  /* height: 65px; */
+  padding-left: unset !important;
+ 
+}
+
+.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-6.css-1osj8n2-MuiGrid-root button {
+  border-radius: 5px !important;
+  min-height: 65px;
+  height: 100%;
+  line-height: 1.5 !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.MuiGrid-root.MuiGrid-container.css-10mzr36-MuiGrid-root {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  gap: 20px;
+
+}
