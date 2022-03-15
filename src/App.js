@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
-import Box from "@mui/material/Box";
-import { Container } from "@mui/material";
+import { Container , Card } from 'semantic-ui-react';
 import BoardGame from "./components/BoardGame";
 import axios from "axios";
 
@@ -54,14 +53,14 @@ function App() {
           Loading Questions...
         </h1>
         <br></br>
-        <Box justifyContent={"center"} sx={{ display: "flex" }}>
+        <Card justifyContent={"center"} sx={{ display: "flex" }}>
           <CircularProgress
             style={{
               padding: "50px",
               color: "white",
             }}
           />
-        </Box>
+        </Card>
       </Container>
     );
   }

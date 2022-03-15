@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
+import { Container, Card} from 'semantic-ui-react';
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Grid, Container } from "@mui/material";
+import { Grid } from "@mui/material";
 import ProgressLine from "./TimeLinear";
 
 //constants styles for container and button
