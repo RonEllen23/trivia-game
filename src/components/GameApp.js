@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import {Container, Card, Loader, Dimmer} from 'semantic-ui-react';
+import {Container, Card, Loader, Dimmer, Button} from 'semantic-ui-react';
 import BoardGame from "./BoardGame";
 import axios from "axios";
+import "../App.css";
+
 
 //Example for URL: https://opentdb.com/api.php?amount=10&category=22&difficulty=medium
 
@@ -73,17 +75,16 @@ function GameApp(props) {
         );
     }
 
-    //const LoaderExampleInlineCentered = () => <Loader active inline='centered' />
     return (
-        <div className="App">
-            <BoardGame
-                data={data}
-                didSelectPlayAgain={() => {
-                    setData(null);
-                    getData().then((data) => setData(data));
-                }}
-            />
-        </div>
+            <div className="App">
+                <BoardGame
+                    data={data}
+                    didSelectPlayAgain={() => {
+                        setData(null);
+                        getData().then((data) => setData(data));
+                    }}
+                />
+            </div>
     );
 }
 

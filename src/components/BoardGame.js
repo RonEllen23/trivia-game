@@ -7,8 +7,10 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
 import ProgressLine from "./TimeLinear";
+import "../App.css";
 
 //constants styles for container and button
+//Move styles to folder for BoardGame
 const styles = {
   boxContainer: {
     backgroundposition: "center",

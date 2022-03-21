@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import LinearProgress from "@mui/material/LinearProgress";
 import { Progress } from 'semantic-ui-react'
+import "../App.css";
 
 function ProgressLine(props) {
   const [progress, setProgress] = useState(0);

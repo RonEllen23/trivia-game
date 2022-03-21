@@ -1,11 +1,54 @@
-.header-setting{
-    font-family: verdana;
-    text-align: center;
-    padding: 50px 30px 50px 80px;
-    color: #71b5c6;
+.background-setting{
+    background-color: #efdfa6;
 }
 
+.container-setting{
+    text-align: center;
+    padding: 50px 30px 50px 80px;
+    border: 5px solid black;
+    background-color: #f0d8c2;
+}
+
+.header-setting{
+    font-family: Courier New;
+    text-align: center;
+    font-size: 60px;
+    padding: 50px 30px 50px 80px;
+    color: #876f70;
+}
+
+.label-setting{
+    text-align: left;
+    font-family: cursive;
+    font-size: 20px;
+
+}
+
+.dropdown-setting{
+    width: 250px;
+}
+
+.message-setting{
+    border: 2px solid red;
+    padding: 10px;
+    font-family: Courier New;
+    border-radius: 50px;
+
+}
 .button-setting{
     padding:  50px 30px 50px 80px;
     text-align: center;
+}
+
+.disable-setting{
+    font-family: cursive;
+    border: 5px #d7d7d8;
+    color: #876f70;
+    background-color: #d7d7d8;
+    text-align: center;
+    border-radius: 20px;
+    width: 100px;
+    padding: 10px;
+    margin-left: 250px;
+
 }
