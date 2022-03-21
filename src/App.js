@@ -1,81 +1,22 @@
-import { useEffect, useState } from "react";
-import CircularProgress from "@mui/material/CircularProgress";
-import { Container , Card } from 'semantic-ui-react';
-import BoardGame from "./components/BoardGame";
-import axios from "axios";
+import { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Setting from "./components/Setting";
+import GameApp from "./components/GameApp";
 
-var ApiConfig = {
-  method: "get",
-  url: "https://opentdb.com/api.php?amount=10",
-};
 
-//Async function for getting resonse from API.
-//create new object with shuffle questions.
-async function getData() {
-  let data = await axios(ApiConfig);
-  let results = data.data.results;
-  return results.map((res) => {
-    let answersList = [{ answer: res.correct_answer, isCorrect: true }];
-    res.incorrect_answers.forEach((ans) => {
-      answersList.push({ answer: ans, isCorrect: false });
-    });
-    answersList = answersList.sort(() => Math.random() - 0.5);
-    return {
-      category: res.category,
-      type: res.type,
-      difficulty: res.difficulty,
-      question: res.question,
-      answers: answersList,
-    };
-  });
-}
 
 function App() {
-  const [data, setData] = useState();
+    const [category, setCategory] = useState("14");
+    const [difficulty, setDifficulty] = useState("easy");
 
-  useEffect(() => {
-    getData().then((data) => {
-      setData(data);
-    });
-  }, []);
-
-  //Spinner components while getting data.
-  if (!data) {
     return (
-      <Container>
-        <h1
-          style={{
-            color: "white",
-            textAlign: "center",
-            fontFamily: "monospace",
-          }}
-        >
-          Loading Questions...
-        </h1>
-        <br></br>
-        <Card justifyContent={"center"} sx={{ display: "flex" }}>
-          <CircularProgress
-            style={{
-              padding: "50px",
-              color: "white",
-            }}
-          />
-        </Card>
-      </Container>
+        <Router>
+            <Switch>
+                <Route path="/Setting"  render={(props) => <Setting {...props} setCategory={setCategory} setDifficulty={setDifficulty} />}></Route>
+                <Route path="/GameApp" render={(props) => <GameApp {...props} category={category} difficulty={difficulty} />}></Route>
+            </Switch>
+        </Router>
     );
-  }
-
-  return (
-    <div className="App">
-      <BoardGame
-        data={data}
-        didSelectPlayAgain={() => {
-          setData(null);
-          getData().then((data) => setData(data));
-        }}
-      />
-    </div>
-  );
 }
 
 export default App;
