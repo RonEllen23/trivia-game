@@ -3,9 +3,7 @@ import {Container, Card, Loader, Dimmer, Button} from 'semantic-ui-react';
 import BoardGame from "./BoardGame";
 import axios from "axios";
 import "../App.css";
-
-
-//Example for URL: https://opentdb.com/api.php?amount=10&category=22&difficulty=medium
+import "../Styles/GameApp.css";
 
 
 //Async function for getting resonse from API.
@@ -35,10 +33,8 @@ function GameApp(props) {
     const category = props.category;
     const difficulty = props.difficulty;
 
-    //Example for URL: https://opentdb.com/api.php?amount=10&category=22&difficulty=medium
     let ApiConfig = {
         method: "get",
-        // url: "https://opentdb.com/api.php?amount=10"+"&category="+category+"&difficulty="+difficulty
         url: `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}`
     };
 
@@ -54,7 +50,7 @@ function GameApp(props) {
     //Spinner components while getting data.
     if (!data) {
         return (
-            <Container>
+            <Container text className="container-gameApp">
                 <h1
                     style={{
                         color: "white",
@@ -66,8 +62,8 @@ function GameApp(props) {
                 </h1>
                 <br></br>
                 <Card justifyContent={"center"} sx={{ display: "flex" }}>
-                    <Dimmer active>
-                        <Loader  size='large'
+                    <Dimmer active inverted >
+                        <Loader className="loader-gameApp" size='large'
                         />
                     </Dimmer>
                 </Card>

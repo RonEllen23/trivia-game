@@ -1,0 +1,17 @@
+.background-setting{
+    background-color: #efdfa6;
+}
+
+.container-gameApp{
+    text-align: center;
+    padding: 200px 200px 200px 200px;
+    border: 5px solid black;
+    background-color: #f0d8c2;
+}
+
+.loader-gameApp{
+    background-color: #f0d8c2;
+    text-align: center;
+    padding: 0px 0px 0px 300px;
+    ;
+}
