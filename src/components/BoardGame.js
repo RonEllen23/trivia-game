@@ -15,10 +15,17 @@ const styles = {
     border: "6px",
     borderRadius: "10%",
     background: "#2C3A47",
-    width: "100px",
-    height: "50px",
+    width: "150px",
+    height: "70px",
     fontFamily: "cursive",
     textAlign: "center",
+    marginTop: "50px",
+  },
+  orButton: {
+    fontFamily: "cursive",
+    textAlign: "center",
+    marginTop: "60px",
+    fontSize: "15px",
   },
 };
 
@@ -36,9 +43,8 @@ function BoardGame(props) {
   //user can rerun app after finish game
   let didSelectPlayAgain = props.didSelectPlayAgain;
   let questions = props.data;
-  let category = props.category;
-  let difficulty = props.difficulty;
-  let apiConfig = props.ApiConfig;
+  const setCategory = props.setCategory;
+  const setDifficulty = props.setDifficulty;
   //current question that presented to user
   let currQuest = questions[current];
 
@@ -47,12 +53,16 @@ function BoardGame(props) {
   and option to rerun app with new questions.
   */
 
-  //TODO: check if button is clicked redirect to Setting or GameAPP with same Props
+  function resetSetting() {
+    setCategory("");
+    setDifficulty("");
+  }
+
   if (current >= questions.length) {
     return (
       <div
         className="title-name"
-        style={{ display: "grid", textAlig: "center" }}
+        style={{border:"3px solid black", width:"50%", padding: "20px", margin:"100px 200px", background:"#efdfa6"}}
       >
         <h1>End of Game</h1>
         <br></br>
@@ -62,15 +72,14 @@ function BoardGame(props) {
             <Button
                 style={styles.againButton}
                 onClick={() => {
-                  apiConfig.url = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}`
-                  didSelectPlayAgain(apiConfig);
+                  didSelectPlayAgain();
                 }}
             >
               {" "}
               Play Again
             </Button>
-            <Button.Or />
-            <Button style={styles.againButton} > <Link to="/Setting"> {" "} Select New</Link> </Button>
+            <Button.Or  style={styles.orButton}></Button.Or>
+            <Button style={styles.againButton}  onClick={resetSetting}> <Link to="/Setting"> {" "} Select New</Link> </Button>
           </Button.Group>
         </div>
       </div>

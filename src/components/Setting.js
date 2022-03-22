@@ -1,29 +1,23 @@
-import {Button, Dropdown, Card, Container, Form, Icon, Message} from "semantic-ui-react";
+import {Button, Container, Form, Icon, Message} from "semantic-ui-react";
 import "../Styles/Setting.css";
 import {CATEGORY, DIFFICULTY} from "../Contants/AdditionalInfoUrl";
-import React, {useState} from "react";
+import React from "react";
 import {Link} from "react-router-dom";
 
 function Setting(props) {
 
-
     let setCategory = props.setCategory;
     let setDifficulty = props.setDifficulty;
 
+    //update category
     const handleDropDownSelectCategory = (event, data) => {
         setCategory(data.value);
     };
 
+    //update difficulty
     const handleDropDownSelectDifficulty = (event, data) => {
         setDifficulty(data.value);
     };
-
-    function onClickGame(e) {
-        console.log("button has been clicked!");
-        console.log(props.category);
-        console.log(props.difficulty);
-    }
-
 
     return (
         <div className="background-setting">

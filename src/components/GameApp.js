@@ -32,6 +32,9 @@ function GameApp(props) {
 
     const category = props.category;
     const difficulty = props.difficulty;
+    const setCategory = props.setCategory;
+    const setDifficulty = props.setDifficulty;
+
 
     const ApiConfig = {
         method: "get",
@@ -77,10 +80,11 @@ function GameApp(props) {
                     data={data}
                     category={category}
                     difficulty={difficulty}
-                    ApiConfig={ApiConfig}
-                    didSelectPlayAgain={(apiConfig) => {
+                    setCategory={setCategory}
+                    setDifficulty={setDifficulty}
+                    didSelectPlayAgain={() => {
                         setData(null);
-                        getData(apiConfig).then((data) => setData(data));
+                        getData(ApiConfig).then((data) => setData(data));
                     }}
                 />
             </div>
