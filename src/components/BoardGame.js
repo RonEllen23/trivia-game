@@ -1,13 +1,10 @@
 import React from "react";
 import { useState } from "react";
-
-import {Container, Card, Grid, Button, Step, Icon, Advertisement, Table} from 'semantic-ui-react';
+import {Container, Grid, Button, Advertisement, Table} from 'semantic-ui-react';
 import "../Styles/BoardGame.css";
 import ProgressLine from "./TimeLinear";
 import {Link} from "react-router-dom";
 
-//constants styles for container and button
-//Move styles to folder for BoardGame
 const styles = {
   againButton: {
     color: "white",
@@ -130,6 +127,8 @@ function BoardGame(props) {
              variant="h5"
              component="div">
            </Advertisement>
+
+           {isAnswer ? <ProgressLine animationTime={1600} /> : <div className="margin-div"></div>}
          </div>
         <div>
             <Grid className="answers-boardGame-grid">

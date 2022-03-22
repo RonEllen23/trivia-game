@@ -114,7 +114,7 @@
 }
 
 .ui.grid.answers-boardGame-grid{
-    padding: 20px 50px 100px;
+    padding: 0px 50px 100px;
     width: 100%;
 }
 
@@ -130,4 +130,8 @@
 
 .ui.button{
     text-align: center;
+}
+
+.margin-div{
+    margin-top: 55px;
 }
