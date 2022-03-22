@@ -68,27 +68,13 @@ background-color: #efdfa6;
   box-sizing: border-box;
   padding: 50px;
   border: 1px solid #000;
-background-color: #fff !important;
+background-color: #fff ;
 }
 .MuiTypography-root.MuiTypography-h5.css-ag7rrr-MuiTypography-root{
   text-align: left;
   width: fit-content;
   margin: auto;
   width: 650px;   
-}
-
-.question-content {
-  font-size: 20px;
-  font-family: monospace;
-}
-.labelCategory{
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.question-label{
-  font-size: 16px;
-  font-weight: bold;
 }
 
 .MuiGrid-root.MuiGrid-container.css-10mzr36-MuiGrid-root {

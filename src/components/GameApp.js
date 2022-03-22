@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {Container, Card, Loader, Dimmer, Button} from 'semantic-ui-react';
+import {Container, Card, Loader, Dimmer} from 'semantic-ui-react';
 import BoardGame from "./BoardGame";
 import axios from "axios";
 import "../App.css";
@@ -33,7 +33,7 @@ function GameApp(props) {
     const category = props.category;
     const difficulty = props.difficulty;
 
-    let ApiConfig = {
+    const ApiConfig = {
         method: "get",
         url: `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}`
     };
@@ -75,9 +75,12 @@ function GameApp(props) {
             <div className="App">
                 <BoardGame
                     data={data}
-                    didSelectPlayAgain={() => {
+                    category={category}
+                    difficulty={difficulty}
+                    ApiConfig={ApiConfig}
+                    didSelectPlayAgain={(apiConfig) => {
                         setData(null);
-                        getData().then((data) => setData(data));
+                        getData(apiConfig).then((data) => setData(data));
                     }}
                 />
             </div>

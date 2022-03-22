@@ -1,0 +1,133 @@
+.title-name {
+    flex-direction: column;
+    display: flex;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.title-name h1 {
+    color: #c1af91;
+    font-family: cursive;
+    font-size: 45px;
+}
+
+.first-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background: #efdfa6;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.labelCategory{
+    font-size: 20px;
+    font-family: fantasy;
+    font-weight: 300
+}
+
+.question-label{
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    font-family:  Geneva, Tahoma, sans-serif;
+}
+
+.question-content-container{
+    backgroundposition: center;
+    backgroundrepeat: no-repeat;
+    height: 400px;
+    border-radius: 8px;
+    border: 3px solid black;
+    background: #f1e7dc;
+    text-align: left;
+}
+
+.question-content {
+    font-size: 20px;
+    font-family: monospace;
+}
+.labelCategory{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.question-label{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.board-game-btn{
+    color: white;
+}
+
+.segment-question-content{
+    background: #efe5db;
+    width: 100%;
+    border: 3px solid black;
+}
+
+.showing-question-content-container{
+    background: white;
+
+}
+
+.grid-showing-answers{
+    margin-top: 20px;
+    max-width: 70%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    gap: 20px;
+    background: #f1e7dc;
+    border-radius: 5px !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.questionAdverstisement-container{
+    border-radius: 5px;
+    border-radius: 8px;
+    background: #f1e7dc;
+    text-align: left;
+}
+
+.ui.leaderboard.ad{
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 95%;
+    background: #f2ddba;
+    border-radius: 7px !important;
+    text-align: center;
+}
+
+.ui.large .rectangle.test.ad{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100%;
+    background: #f1e7dc;
+    border-radius: 10px !important;
+    text-align: center;
+}
+
+.ui.grid.answers-boardGame-grid{
+    padding: 20px 50px 100px;
+    width: 100%;
+}
+
+.ui.table.each-answer-grid{
+    padding: 10px 10px 10px 10px;
+    text-align: left;
+    width: 100%;
+    background: #f1e7dc;
+    border: none;
+    border-radius: 7px !important;
+}
+
+
+.ui.button{
+    text-align: center;
+}

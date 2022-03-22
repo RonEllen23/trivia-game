@@ -1,22 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import { Container, Card} from 'semantic-ui-react';
-import { Button } from 'semantic-ui-react';
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import { Grid } from "@mui/material";
+
+import {Container, Card, Grid, Button, Step, Icon, Advertisement, Table} from 'semantic-ui-react';
+import "../Styles/BoardGame.css";
 import ProgressLine from "./TimeLinear";
-import "../App.css";
+import {Link} from "react-router-dom";
 
 //constants styles for container and button
 //Move styles to folder for BoardGame
 const styles = {
-  boxContainer: {
-    backgroundposition: "center",
-    backgroundrepeat: "no-repeat",
-    height: "500px",
-  },
   againButton: {
     color: "white",
     fontSize: "15px",
@@ -29,6 +21,7 @@ const styles = {
     width: "100px",
     height: "50px",
     fontFamily: "cursive",
+    textAlign: "center",
   },
 };
 
@@ -46,6 +39,9 @@ function BoardGame(props) {
   //user can rerun app after finish game
   let didSelectPlayAgain = props.didSelectPlayAgain;
   let questions = props.data;
+  let category = props.category;
+  let difficulty = props.difficulty;
+  let apiConfig = props.ApiConfig;
   //current question that presented to user
   let currQuest = questions[current];
 
@@ -53,6 +49,8 @@ function BoardGame(props) {
   End of Game - user see screen with his finall score, 
   and option to rerun app with new questions.
   */
+
+  //TODO: check if button is clicked redirect to Setting or GameAPP with same Props
   if (current >= questions.length) {
     return (
       <div
@@ -63,15 +61,20 @@ function BoardGame(props) {
         <br></br>
         <h1>Final Score: {score}</h1>
         <div>
-          <Button
-            style={styles.againButton}
-            onClick={() => {
-              didSelectPlayAgain();
-            }}
-          >
-            {" "}
-            Play Again
-          </Button>
+          <Button.Group>
+            <Button
+                style={styles.againButton}
+                onClick={() => {
+                  apiConfig.url = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}`
+                  didSelectPlayAgain(apiConfig);
+                }}
+            >
+              {" "}
+              Play Again
+            </Button>
+            <Button.Or />
+            <Button style={styles.againButton} > <Link to="/Setting"> {" "} Select New</Link> </Button>
+          </Button.Group>
         </div>
       </div>
     );
@@ -103,7 +106,7 @@ function BoardGame(props) {
 
   //return html
   return (
-    <div className="title-name" style={{ display: "grid", textAlig: "center" }}>
+    <div className="title-name">
       <h1>Trivia Game</h1>
       <Container fixed>
         <div className="first-container">
@@ -111,60 +114,50 @@ function BoardGame(props) {
             <label className="labelCategory">Category: </label>
             {currQuest.category}
           </span>
-          <Typography sx={{ fontSize: 18 }} gutterBottom>
+          <span sx={{ fontSize: 18 }} gutterBottom>
             <label className="labelCategory">Score: {score}</label>
-          </Typography>
+          </span>
         </div>
-        <Box style={styles.boxContainer}>
-          <Card
-            style={{ display: "flex", justifyContent: "center" }}
-            variant="outlined"
-            sx={{ minWidth: 600 }}
-          >
-            <CardContent>
-              {isAnswer ? <ProgressLine animationTime={1500} /> : <></>}
-              <Typography width={800} component={"span"}>
-                <Typography
-                  dangerouslySetInnerHTML={{
-                    __html: `<label class="question-label"> Question ${
-                      current + 1
-                    }/10 </label><br> <label class="question-content">${
-                      currQuest.question
-                    }</label>`,
-                  }}
-                  variant="h5"
-                  component="div"
-                ></Typography>
-                <Grid
-                  container
-                  style={{ maxWidth: "70%", display: "center" }}
-                  rowSpacing={1}
-                  columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-                >
-                  {currQuest.answers.map((option) => {
-                    let color = "#2c3e50";
-                    if (isAnswer) {
-                      color = option.isCorrect ? "#27ae60" : "#e74c3c";
-                    }
-                    return (
-                      <Grid item xs={6}>
-                        <Button
-                          style={{ width: "100%", backgroundColor: color }}
-                          variant="contained"
-                          disableRipple={isAnswer}
-                          disableElevation={isAnswer}
-                          onClick={onClickAnswer(option)}
-                        >
-                          {option.answer}
-                        </Button>
-                      </Grid>
-                    );
-                  })}
-                </Grid>
-              </Typography>
-            </CardContent>
-          </Card>
-        </Box>
+        <Container text className="question-content-container">
+         <div>
+            <Advertisement   unit="leaderboard"  dangerouslySetInnerHTML={{
+               __html: `<label class="question-label"> Question ${
+                   current + 1
+               }/10 </label><br> <label class="question-content">${
+                   currQuest.question
+               }</label>`,
+             }}
+             variant="h5"
+             component="div">
+           </Advertisement>
+         </div>
+        <div>
+            <Grid className="answers-boardGame-grid">
+              <Grid.Column>
+                {currQuest.answers.map((option) => {
+                  let color = "#2c3e50";
+                  if (isAnswer) {
+                    color = option.isCorrect ? "#27ae60" : "#e74c3c";
+                  }
+                  return (
+                      <div >
+                        <Table className="each-answer-grid">
+                          <Button
+                              style={{ backgroundColor: color, color: "white", width: "100%"}}
+                              disableRipple={isAnswer}
+                              disableElevation={isAnswer}
+                              onClick={onClickAnswer(option)}
+                          >
+                            {option.answer}
+                          </Button>
+                        </Table>
+                      </div>
+                  );
+                })}
+              </Grid.Column>
+            </Grid>
+        </div>
+        </Container>
       </Container>
     </div>
   );

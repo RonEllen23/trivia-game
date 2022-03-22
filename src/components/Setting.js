@@ -1,14 +1,11 @@
 import {Button, Dropdown, Card, Container, Form, Icon, Message} from "semantic-ui-react";
 import "../Styles/Setting.css";
 import {CATEGORY, DIFFICULTY} from "../Contants/AdditionalInfoUrl";
-import GameApp from "./GameApp";
-import ProgressLine from "./TimeLinear";
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
 
 function Setting(props) {
 
-    const [isClicked,setIsClicked]= useState(false);
 
     let setCategory = props.setCategory;
     let setDifficulty = props.setDifficulty;
@@ -25,8 +22,8 @@ function Setting(props) {
         console.log("button has been clicked!");
         console.log(props.category);
         console.log(props.difficulty);
-        setIsClicked(true)
     }
+
 
     return (
         <div className="background-setting">
