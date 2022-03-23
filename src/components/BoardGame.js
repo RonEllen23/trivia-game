@@ -3,7 +3,7 @@ import { useState } from "react";
 import {Container, Grid, Button, Advertisement, Table} from 'semantic-ui-react';
 import "../Styles/BoardGame.css";
 import ProgressLine from "./TimeLinear";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
 const styles = {
   againButton: {
@@ -79,7 +79,7 @@ function BoardGame(props) {
               Play Again
             </Button>
             <Button.Or  style={styles.orButton}></Button.Or>
-            <Button style={styles.againButton}  onClick={resetSetting}> <Link to="/Setting"> {" "} Select New</Link> </Button>
+            <Button style={styles.againButton}  onClick={resetSetting}> <Link style={{color: "white"}} to="/Setting"> {" "} Select New</Link> </Button>
           </Button.Group>
         </div>
       </div>

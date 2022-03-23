@@ -64,7 +64,7 @@ function Setting(props) {
                         }
                     <div >
                         {props.category && props.difficulty ?
-                            <Button color='white' > <Link to="/GameApp">Start Game</Link> <Icon name='right arrow' /></Button>
+                            <Button color='white' > <Link style={{color:"#876f70"}} to="/GameApp">Start Game</Link> <Icon style={{color:"#876f70"}} name='right arrow' /></Button>
                        :
                             <div className="disable-setting">Start Game</div>
                         }
