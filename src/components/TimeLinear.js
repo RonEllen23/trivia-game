@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import LinearProgress from "@mui/material/LinearProgress";
+import { Progress } from 'semantic-ui-react'
+import "../App.css";
 
 function ProgressLine(props) {
   const [progress, setProgress] = useState(0);
@@ -22,7 +23,7 @@ function ProgressLine(props) {
     };
   }, []);
 
-  return <LinearProgress variant="determinate" value={progress} />;
+  return <Progress style={{ marginTop: "10px"}} percent={progress} indicating />;
 }
 
 export default ProgressLine;
