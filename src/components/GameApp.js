@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {Container, Card, Loader, Dimmer} from 'semantic-ui-react';
+import { useParams} from "react-router-dom";
 import BoardGame from "./BoardGame";
 import axios from "axios";
 import "../App.css";
@@ -34,6 +35,7 @@ function GameApp(props) {
     const difficulty = props.difficulty;
     const setCategory = props.setCategory;
     const setDifficulty = props.setDifficulty;
+    const {categoryId, difficultyId}=useParams();
 
 
     const ApiConfig = {
@@ -45,9 +47,15 @@ function GameApp(props) {
     //Check if newState for url is necessary and add it to useEffect
 
     useEffect(() => {
-        getData(ApiConfig).then((data) => {
-            setData(data);
-        });
+        if(categoryId && difficultyId){
+            let baseToStringCategory = `${categoryId}`
+            let baseToStringDifficulty = `${difficultyId}`
+            setCategory(parseInt(atob(baseToStringCategory).replace(/[^\w\s]/gi, '')));
+            setDifficulty(atob(baseToStringDifficulty).replace(/[^\w\s]/gi, ''));
+        }
+            getData(ApiConfig).then((data) => {
+                setData(data);
+            });
     }, []);
 
     //Spinner components while getting data.

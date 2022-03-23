@@ -14,9 +14,8 @@ function App() {
             <Router>
                 <Switch>
                     <Route path="/Setting"  render={(props) => <Setting {...props} setCategory={setCategory} setDifficulty={setDifficulty} category={category} difficulty={difficulty}  />}></Route>
-                    <Route path="/GameApp" render={(props) => <GameApp {...props} category={category} difficulty={difficulty} setCategory={setCategory} setDifficulty={setDifficulty}  />}></Route>
-                    <Route path="/*" component={NotFoundPage} />
-
+                    <Route path="/GameApp/:categoryId?/:difficultyId?" render={(props) => <GameApp {...props} category={category} difficulty={difficulty} setCategory={setCategory} setDifficulty={setDifficulty}  />}></Route>
+                    <Route path="/*" render={(props) => <NotFoundPage {...props} setCategory={setCategory} setDifficulty={setDifficulty} category={category} difficulty={difficulty} />}></Route>
                 </Switch>
             </Router>
     );
